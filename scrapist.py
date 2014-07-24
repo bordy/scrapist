@@ -11,4 +11,8 @@ cath_soup = BeautifulSoup(cath_response.text)
 # print cath_soup.prettify()
 
 for a in cath_soup.find_all("div", {"class": "bibleReadingsWrapper"}):
-    b = BeautifulSoup(a.text)
+    title_text = a.find('h4').text
+    body_text = a.find('div', {'class': 'poetry'}).text
+
+    print title_text
+    print body_text
